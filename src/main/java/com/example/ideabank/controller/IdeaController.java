@@ -2,7 +2,6 @@ package com.example.ideabank.controller;
 
 import com.example.ideabank.model.Idea;
 import com.example.ideabank.service.IdeaService;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
 
@@ -22,6 +21,7 @@ public class IdeaController {
     @ResponseStatus(HttpStatus.OK)
     public List<Idea> findAll() {
         return ideaService.findAll();
+//        TODO: Need to add pagination here
     }
 
     @GetMapping(value = "/hi")
@@ -47,6 +47,8 @@ public class IdeaController {
     public Idea update(@PathVariable("id") Long id, @RequestBody Idea idea) throws Exception {
         return ideaService.udpate(id, idea);
     }
+
+//    TODO: Need to add Patch here
 
     @DeleteMapping(value = "/{id}")
     @ResponseStatus(HttpStatus.ACCEPTED)
